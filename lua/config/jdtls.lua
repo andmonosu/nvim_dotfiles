@@ -20,7 +20,7 @@ local function get_bundles()
         vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
     }
 
-    -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
+    -- Obtain the full path to the directory where Mason has downloaded the Java Testbinaries
     local java_test_path = vim.fn.expand("$MASON/packages/java-test")
      -- Add all of the Jars for running tests in debug mode to the bundles list
      vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
@@ -98,7 +98,7 @@ local function setup_jdtls()
         }
     }
 
-    local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+    local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     for k,v in pairs(lsp_capabilities) do capabilities[k] = v end
 
