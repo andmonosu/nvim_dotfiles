@@ -14,7 +14,6 @@ return {
 			typescript = { "biomejs" },
 			javascriptreact = { "biomejs" },
 			typescriptreact = { "biomejs" },
-
 			css = { "stylelint" },
 			scss = { "stylelint" },
 			vue = { "eslint" },
@@ -23,6 +22,8 @@ return {
 			jsonc = { "biomejs" },
 			yaml = { "yamllint" },
 			java = { "checkstyle" },
+			python = { "ruff" },
+			rust = { "clippy" },
 		}
 
 		lint.linters.luacheck.args = {

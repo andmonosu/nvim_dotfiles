@@ -12,7 +12,6 @@ return {
 				typescript = { "biome" },
 				javascriptreact = { "biome" },
 				typescriptreact = { "biome" },
-
 				html = { "prettier" },
 				css = { "prettier" },
 				scss = { "prettier" },
@@ -22,6 +21,8 @@ return {
 				jsonc = { "biome" },
 				yaml = { "prettier" },
 				java = { "google-java-format" },
+				python = { "ruff_format" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

@@ -26,9 +26,11 @@ return {
 			"jsonls",
 			"yamlls",
 			"qmlls",
+			"pyright",
+			"rust_analyzer",
 		}
 
-		for i, server in ipairs(servers) do
+		for _, server in ipairs(servers) do
 			vim.lsp.config(server, {
 				capabilities = capabilities,
 			})
