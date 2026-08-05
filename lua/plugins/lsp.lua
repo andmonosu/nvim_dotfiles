@@ -14,13 +14,51 @@ return {
 		})
 		vim.lsp.enable("lua_ls")
 
+		vim.lsp.config("vtsls", {
+			capabilities = capabilities,
+			settings = {
+				typescript = {
+					inlayHints = {
+						parameterNames = { enabled = "literals" },
+						variableTypes = { enabled = true },
+						propertyDeclarationTypes = { enabled = true },
+						functionLikeReturnTypes = { enabled = true },
+					},
+					updateImportsOnFileMove = { enabled = "always" },
+					suggest = { completeFunctionCalls = true },
+				},
+				vtsls = {
+					experimental = {
+						completion = { enableServerSideFuzzyMatch = true },
+					},
+				},
+			},
+		})
+		vim.lsp.enable("vtsls")
+
+		vim.lsp.config("lemminx", {
+			capabilities = capabilities,
+			cmd = { "lemminx" },
+			settings = {
+				xml = {
+					server = {
+						workDir = vim.fn.stdpath("cache") .. "/lemminx",
+					},
+					validation = {
+						enabled = true,
+						schema = true,
+					},
+				},
+			},
+		})
+		vim.lsp.enable("lemminx")
+
 		local servers = {
 			"nixd",
-			"vtsls",
 			"html",
 			"cssls",
 			"angularls",
-			"volar",
+			"vue_ls",
 			"dockerls",
 			"docker_compose_language_service",
 			"jsonls",
@@ -64,7 +102,7 @@ return {
 		vim.keymap.set("n", "<leader>ch", vim.lsp.buf.hover, { desc = "Mostrar Documentación (Hover)" })
 		vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Ir a Definición" })
 		vim.keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "Ir a Declaración" })
-		vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, {
+		vim.keymap.set("n", "<leader>ce", vim.diagnostic.open_float, {
 			desc = "Código: Ver diagnóstico de la línea (LSP)",
 		})
 		vim.keymap.set("n", "<leader>cn", vim.diagnostic.goto_next, { desc = "Código: Siguiente diagnóstico" })

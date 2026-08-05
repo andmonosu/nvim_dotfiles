@@ -279,6 +279,12 @@ local on_attach = function(client, bufnr)
 	bufmap("n", "<leader>jv", function()
 		require("jdtls").extract_variable()
 	end, "Java: Extraer Variable")
+	bufmap("n", "<leader>jC", function()
+		require("jdtls").extract_constant()
+	end, "Java: Extraer Constante")
+	bufmap("n", "<leader>jm", function()
+		require("jdtls").extract_method()
+	end, "Java: Extraer Metodo")
 
 	-- 🧪 Suite de Testing (JUnit)
 	bufmap("n", "<leader>jt", function()
@@ -396,6 +402,22 @@ local config = {
 				annotationProcessing = {
 					enabled = true,
 				},
+			},
+			codeGeneration = {
+				hashCodeEquals = {
+					useJava7Objects = true, -- Objects.hash(...) / Objects.equals(...)
+					useInstanceof = true, -- 'instanceof' en vez de getClass()
+				},
+				toString = {
+					template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+					codeStyle = "STRING_CONCATENATION", -- o STRING_BUILDER, STRING_BUILDER_CHAINED, STRING_FORMAT
+					skipNullValues = false,
+					listArrayContents = true,
+					limitElements = 0,
+				},
+				generateComments = false, -- ya tienes tus propios snippets de Javadoc, no hace falta que jdtls meta los suyos
+				useBlocks = true,
+				insertionLocation = "afterCursor",
 			},
 			-- [FIX 3] Runtime de Java explícito para que JDTLS pueda resolver
 			-- el ejecutable "java" al lanzar tests/debug (necesario con Nix,

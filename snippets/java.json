@@ -41,5 +41,71 @@
     "prefix": "logf",
     "body": ["log.info(\"${1:Mensaje}: {}\", ${2:variable});"],
     "description": "Inserta un log informativo usando el logger de Lombok"
+  },
+  "Javadoc de método (void)": {
+    "prefix": "sdocv",
+    "body": [
+      "/**",
+      " * ${1:Descripción del método.}",
+      " *",
+      " * @param ${2:parametro} ${3:Descripción del parámetro}",
+      " * @throws ${4:Exception} ${5:Descripción de la excepción}",
+      " */",
+      "$0"
+    ],
+    "description": "Genera un Javadoc para métodos void, con @param y @throws"
+  },
+  "Javadoc de método (con retorno)": {
+    "prefix": "sdoct",
+    "body": [
+      "/**",
+      " * ${1:Descripción del método.}",
+      " *",
+      " * @param ${2:parametro} ${3:Descripción del parámetro}",
+      " * @return ${4:Descripción del valor de retorno}",
+      " * @throws ${5:Exception} ${6:Descripción de la excepción}",
+      " */",
+      "$0"
+    ],
+    "description": "Genera un Javadoc para métodos con valor de retorno, con @param, @return y @throws"
+  },
+  "Javadoc de clase": {
+    "prefix": "sdocclass",
+    "body": [
+      "/**",
+      " * ${1:Descripción de la clase.}",
+      " *",
+      " * @author ${2:Tu Nombre}",
+      " * @since $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      " */",
+      "$0"
+    ],
+    "description": "Genera un Javadoc para una clase con @author y @since"
+  },
+  "Javadoc de interfaz": {
+    "prefix": "sdocinterface",
+    "body": [
+      "/**",
+      " * ${1:Descripción de la interfaz.}",
+      " *",
+      " * @author ${2:Tu Nombre}",
+      " * @since $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      " */",
+      "$0"
+    ],
+    "description": "Genera un Javadoc para una interfaz con @author y @since"
+  },
+  "Javadoc de enum": {
+    "prefix": "sdocenum",
+    "body": [
+      "/**",
+      " * ${1:Descripción del enum.}",
+      " *",
+      " * @author ${2:Tu Nombre}",
+      " * @since $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      " */",
+      "$0"
+    ],
+    "description": "Genera un Javadoc para un enum con @author y @since"
   }
 }

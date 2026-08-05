@@ -23,6 +23,7 @@ return {
 				java = { "google-java-format" },
 				python = { "ruff_format" },
 				rust = { "rustfmt" },
+				xml = { "xmlformat" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
