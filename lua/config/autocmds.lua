@@ -1,4 +1,3 @@
-vim.cmd.colorscheme("melange")
 vim.deprecate = function() end
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
